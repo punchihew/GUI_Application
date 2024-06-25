@@ -1,0 +1,584 @@
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Q85)Evalution Step I
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class ChatRoom extends JFrame {
+	private JTextArea txtMsgArea;
+	private JTextField txtMsg;
+	private JPanel pnlTxt;
+	private JScrollPane msgScrollPane;
+	private String userName;
+	
+	ChatRoom(String userName) {
+		this.userName = userName;
+		initComponents(this.userName);
+	}
+	void initComponents(String userName) {
+		setSize(400, 300);
+		setTitle(this.userName + "'s Room");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		txtMsgArea = new JTextArea();
+		msgScrollPane = new JScrollPane(txtMsgArea);
+		
+		txtMsg = new JTextField();
+		
+		add(msgScrollPane, BorderLayout.CENTER);
+		add(txtMsg, BorderLayout.PAGE_END);
+	
+	}
+}
+class MainWindow extends JFrame {
+	private JButton btnJoin;
+	private JTextField txtUserName;
+	private JPanel pnlName;
+	private JPanel pnlBtn;
+	
+	MainWindow() {
+		initComponents();
+	}
+	void initComponents() {
+		setSize(400, 300);
+		setTitle("Main Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		pnlName = new JPanel();
+		pnlBtn = new JPanel();
+		
+		txtUserName = new JTextField(35);
+		txtUserName.addActionListener((event) -> {
+			btnJoin.doClick();
+		});
+		
+		btnJoin = new JButton("Join");
+		btnJoin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnJoin.addActionListener((event) -> {
+			String userName = txtUserName.getText();
+			new ChatRoom(userName).setVisible(true);
+			txtUserName.setText("");
+		});
+		
+		pnlName.add(txtUserName);
+		pnlBtn.add(btnJoin);
+		
+		add(pnlName, BorderLayout.PAGE_START);
+		add(pnlBtn, BorderLayout.CENTER);
+
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		new MainWindow().setVisible(true);
+	}	
+}
+
+/////////////////////////////////////////////////////////////////////
+Q86)Step II
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class ChatRoom extends JFrame {
+	private JTextArea txtMsgArea;
+	private JTextField txtMsg;
+	private JPanel pnlTxt;
+	private JScrollPane msgScrollPane;
+	private String userName;
+	
+	ChatRoom(String userName) {
+		this.userName = userName;
+		initComponents(this.userName);
+	}
+	void initComponents(String userName) {
+		setSize(400, 300);
+		setTitle(this.userName + "'s Room");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		txtMsgArea = new JTextArea();
+		msgScrollPane = new JScrollPane(txtMsgArea);
+		
+		txtMsg = new JTextField();
+		txtMsg.addActionListener((event) -> {
+			String msg = txtMsg.getText();
+			txtMsg.setText("");
+			//txtMsgArea.setText(this.userName + ": " + msg);
+			txtMsgArea.append(this.userName + ": " + msg + "\n");
+		});
+		
+		add(msgScrollPane, BorderLayout.CENTER);
+		add(txtMsg, BorderLayout.PAGE_END);
+	
+	}
+}
+class MainWindow extends JFrame {
+	private JButton btnJoin;
+	private JTextField txtUserName;
+	private JPanel pnlName;
+	private JPanel pnlBtn;
+	
+	MainWindow() {
+		initComponents();
+	}
+	void initComponents() {
+		setSize(400, 300);
+		setTitle("Main Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		pnlName = new JPanel();
+		pnlBtn = new JPanel();
+		
+		txtUserName = new JTextField(35);
+		txtUserName.addActionListener((event) -> {
+			btnJoin.doClick();
+		});
+		
+		btnJoin = new JButton("Join");
+		btnJoin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnJoin.addActionListener((event) -> {
+			String userName = txtUserName.getText();
+			new ChatRoom(userName).setVisible(true);
+			txtUserName.setText("");
+		});
+		
+		pnlName.add(txtUserName);
+		pnlBtn.add(btnJoin);
+		
+		add(pnlName, BorderLayout.PAGE_START);
+		add(pnlBtn, BorderLayout.CENTER);
+
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		new MainWindow().setVisible(true);
+	}	
+}
+
+/////////////////////////////////////////////////////////////////////
+Q87)Exercise Step I
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class ChatRoom1 extends JFrame {
+	private JTextArea txtMsgArea;
+	private JTextField txtMsg;
+	private JPanel pnlTxt;
+	private JScrollPane msgScrollPane;
+	private String userName;
+	
+	private ChatRoom2 c2;
+	
+	ChatRoom1() {
+		initComponents();
+	}
+	void initComponents() {
+		setSize(400, 300);
+		setTitle("Kamal's Room");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		txtMsgArea = new JTextArea();
+		msgScrollPane = new JScrollPane(txtMsgArea);
+		
+		txtMsg = new JTextField();
+		txtMsg.addActionListener((event) -> {
+			
+		});
+		
+		add(msgScrollPane, BorderLayout.CENTER);
+		add(txtMsg, BorderLayout.PAGE_END);
+	}
+	public void setChatRoom(ChatRoom2 c2) {
+		this.c2 = c2;
+	}
+}
+class ChatRoom2 extends JFrame {
+	private JTextArea txtMsgArea;
+	private JTextField txtMsg;
+	private JPanel pnlTxt;
+	private JScrollPane msgScrollPane;
+	private String userName;
+	
+	private ChatRoom1 c1;
+	
+	ChatRoom2() {
+		initComponents();
+	}
+	void initComponents() {
+		setSize(400, 300);
+		setTitle("Nimal's Room");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		txtMsgArea = new JTextArea();
+		msgScrollPane = new JScrollPane(txtMsgArea);
+		
+		txtMsg = new JTextField();
+		txtMsg.addActionListener((event) -> {
+			
+		});
+		
+		add(msgScrollPane, BorderLayout.CENTER);
+		add(txtMsg, BorderLayout.PAGE_END);
+	}
+	public void setChatRoom(ChatRoom1 c1) {
+		this.c1 = c1;
+	}
+}
+
+
+class Demo {
+	public static void main(String args[]) {
+		ChatRoom1 c1 = new ChatRoom1();	
+		ChatRoom2 c2 = new ChatRoom2();	
+		
+		c1.setChatRoom(c2);
+		c2.setChatRoom(c1);
+		
+		c1.setVisible(true);
+		c2.setVisible(true);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+Q88)From Q87 Step II
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class ChatRoom1 extends JFrame {
+	private JTextArea txtMsgArea;
+	private JTextField txtMsg;
+	private JPanel pnlTxt;
+	private JScrollPane msgScrollPane;
+	private String userName;
+	
+	private ChatRoom2 c2;
+	
+	ChatRoom1(String userName) {
+		this.userName = userName;
+		initComponents();
+	}
+	
+	public JTextArea getTextArea() {
+		return txtMsgArea;
+	}
+	
+	void initComponents() {
+		setSize(400, 300);
+		setTitle(this.userName + "'s Room");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		txtMsgArea = new JTextArea();
+		msgScrollPane = new JScrollPane(txtMsgArea);
+		
+		txtMsg = new JTextField();
+		txtMsg.addActionListener((event) -> {
+			String msg = txtMsg.getText();
+			txtMsgArea.append("Me: " + msg + "\n");
+			c2.getTextArea().append(this.userName + ": " + msg + "\n");
+			txtMsg.setText("");
+		});
+		
+		add(msgScrollPane, BorderLayout.CENTER);
+		add(txtMsg, BorderLayout.PAGE_END);
+	}
+	public void setChatRoom(ChatRoom2 c2) {
+		this.c2 = c2;
+	}
+}
+class ChatRoom2 extends JFrame {
+	private JTextArea txtMsgArea;
+	private JTextField txtMsg;
+	private JPanel pnlTxt;
+	private JScrollPane msgScrollPane;
+	private String userName;
+	
+	private ChatRoom1 c1;
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	public JTextArea getTextArea() {
+		return txtMsgArea;
+	}
+	
+	ChatRoom2(String userName) {
+		this.userName = userName;
+		initComponents();
+	}
+	void initComponents() {
+		setSize(400, 300);
+		setTitle(this.userName + "'s Room");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		txtMsgArea = new JTextArea();
+		msgScrollPane = new JScrollPane(txtMsgArea);
+		
+		txtMsg = new JTextField();
+		txtMsg.addActionListener((event) -> {
+			String msg = txtMsg.getText();
+			txtMsgArea.append("Me: " + msg + "\n");
+			c1.getTextArea().append(this.userName + ": " + msg + "\n");
+			txtMsg.setText("");
+		});
+		
+		add(msgScrollPane, BorderLayout.CENTER);
+		add(txtMsg, BorderLayout.PAGE_END);
+	}
+	public void setChatRoom(ChatRoom1 c1) {
+		this.c1 = c1;
+	}
+}
+
+
+class Demo {
+	public static void main(String args[]) {
+		ChatRoom1 c1 = new ChatRoom1("Kamal");	
+		ChatRoom2 c2 = new ChatRoom2("Nimal");	
+		
+		c1.setChatRoom(c2);
+		c2.setChatRoom(c1);
+		
+		c1.setVisible(true);
+		c2.setVisible(true);
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+Q89)Exericse Step I
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class ChatRoom extends JFrame {
+	private JTextArea txtMsgArea;
+	private JTextField txtMsg;
+	private JPanel pnlTxt;
+	private JScrollPane msgScrollPane;
+	private String userName;
+	
+	ChatRoom(String userName) {
+		this.userName = userName;
+		initComponents(this.userName);
+	}
+	void initComponents(String userName) {
+		setSize(400, 300);
+		setTitle(this.userName + "'s Room");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		txtMsgArea = new JTextArea();
+		msgScrollPane = new JScrollPane(txtMsgArea);
+		
+		txtMsg = new JTextField();
+		txtMsg.addActionListener((event) -> {
+			String msg = txtMsg.getText();
+			txtMsg.setText("");
+			//txtMsgArea.setText(this.userName + ": " + msg);
+			txtMsgArea.append(this.userName + ": " + msg + "\n");
+		});
+		
+		add(msgScrollPane, BorderLayout.CENTER);
+		add(txtMsg, BorderLayout.PAGE_END);
+	
+	}
+}
+class MainWindow extends JFrame {
+	private JButton btnJoin;
+	private JTextField txtUserName;
+	private JPanel pnlName;
+	private JPanel pnlBtn;
+	
+	private ChatRoom[] chatRooms;
+	
+	MainWindow() {
+		initComponents();
+	}
+	
+	void extendsArray() {
+		ChatRoom[] temp = new ChatRoom[chatRooms.length + 1];
+		for (int i = 0; i < chatRooms.length; i++) {
+			temp[i] = chatRooms[i];
+		}
+		chatRooms = temp;
+		
+	}
+	
+	void initComponents() {
+		setSize(400, 300);
+		setTitle("Main Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		chatRooms = new ChatRoom[0];
+		
+		pnlName = new JPanel();
+		pnlBtn = new JPanel();
+		
+		txtUserName = new JTextField(35);
+		txtUserName.addActionListener((event) -> {
+			btnJoin.doClick();
+		});
+		
+		btnJoin = new JButton("Join");
+		btnJoin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnJoin.addActionListener((event) -> {
+			String userName = txtUserName.getText();
+			
+			extendsArray();
+			
+			ChatRoom c1 = new ChatRoom(userName);
+			chatRooms[chatRooms.length - 1] = c1;
+			
+			System.out.println(chatRooms.length);
+			
+			c1.setVisible(true);
+			txtUserName.setText("");
+		});
+		
+		pnlName.add(txtUserName);
+		pnlBtn.add(btnJoin);
+		
+		add(pnlName, BorderLayout.PAGE_START);
+		add(pnlBtn, BorderLayout.CENTER);
+
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		new MainWindow().setVisible(true);
+	}	
+}
+
+////////////////////////////////////////////////////////////////////////////////
+Q90)From Q89 Step II
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class ChatRoom extends JFrame {
+	private JTextArea txtMsgArea;
+	private JTextField txtMsg;
+	private JPanel pnlTxt;
+	private JScrollPane msgScrollPane;
+	private String userName;
+	
+	ChatRoom(String userName) {
+		this.userName = userName;
+		initComponents(this.userName);
+	}
+	
+	void initComponents(String userName) {
+		setSize(400, 300);
+		setTitle(this.userName + "'s Room");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		txtMsgArea = new JTextArea();
+		msgScrollPane = new JScrollPane(txtMsgArea);
+		
+		txtMsg = new JTextField();
+		txtMsg.addActionListener((event) -> {
+			String msg = txtMsg.getText();
+			
+			for (int i = 0; i < MainWindow.chatRooms.length; i++) {
+				if(MainWindow.chatRooms[i].userName.equals(this.userName)) {
+					MainWindow.chatRooms[i].txtMsgArea.append("Me: " + msg + "\n");
+				} else {
+					MainWindow.chatRooms[i].txtMsgArea.append(this.userName + ": " + msg + "\n");	
+				}
+			}
+			
+			
+			txtMsg.setText("");
+		});
+		
+		add(msgScrollPane, BorderLayout.CENTER);
+		add(txtMsg, BorderLayout.PAGE_END);
+	
+	}
+}
+class MainWindow extends JFrame {
+	private JButton btnJoin;
+	private JTextField txtUserName;
+	private JPanel pnlName;
+	private JPanel pnlBtn;
+	
+	static ChatRoom[] chatRooms;
+	
+	MainWindow() {
+		initComponents();
+	}
+	
+	void extendsArray() {
+		ChatRoom[] temp = new ChatRoom[chatRooms.length + 1];
+		for (int i = 0; i < chatRooms.length; i++) {
+			temp[i] = chatRooms[i];
+		}
+		chatRooms = temp;
+		
+	}
+	
+	void initComponents() {
+		setSize(400, 300);
+		setTitle("Main Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		chatRooms = new ChatRoom[0];
+		
+		pnlName = new JPanel();
+		pnlBtn = new JPanel();
+		
+		txtUserName = new JTextField(35);
+		txtUserName.addActionListener((event) -> {
+			btnJoin.doClick();
+		});
+		
+		btnJoin = new JButton("Join");
+		btnJoin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnJoin.addActionListener((event) -> {
+			String userName = txtUserName.getText();
+			
+			extendsArray();
+			
+			ChatRoom c1 = new ChatRoom(userName);
+			chatRooms[chatRooms.length - 1] = c1;
+			
+			System.out.println(chatRooms.length);
+			
+			c1.setVisible(true);
+			txtUserName.setText("");
+		});
+		
+		pnlName.add(txtUserName);
+		pnlBtn.add(btnJoin);
+		
+		add(pnlName, BorderLayout.PAGE_START);
+		add(pnlBtn, BorderLayout.CENTER);
+
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		new MainWindow().setVisible(true);
+	}	
+}

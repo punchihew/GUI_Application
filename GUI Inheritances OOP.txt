@@ -1,0 +1,842 @@
+/////////////////////////////////////////////////////////////////////
+    "Java Swing Application"
+/////////////////////////////////////////////////////////////////////
+import javax.swing.*;
+
+class Calculator extends JFrame {
+	private JButton btn;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		btn = new JButton("Button 1");
+		add(btn);
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+/////////////////////////////////////////////////////////////////////
+Q66)
+import javax.swing.*;
+
+class Calculator extends JFrame {
+	private JButton btn1;
+	private JButton btn2;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		btn1 = new JButton("Button 1");
+		btn2 = new JButton("Button 2");
+		
+		add(btn2);
+		add(btn1);		
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+Q67)Solution (an Old Version )
+import javax.swing.*;
+
+class Calculator extends JFrame {
+	private JButton btn1;
+	private JButton btn2;
+	private JButton btn3;
+	private JButton btn4;
+	private JButton btn5;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		btn1 = new JButton("Button 1");
+		btn2 = new JButton("Button 2");
+		btn3 = new JButton("Button 3");
+		btn4 = new JButton("Button 4");
+		btn5 = new JButton("Button 5");
+		
+		add("South", btn1);		
+		add("North", btn2);
+		add("East", btn3);
+		add("West", btn4);
+		add("Center", btn5);
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q68)Solution II (new solutio after jdk 1.4)
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton btn1;
+	private JButton btn2;
+	private JButton btn3;
+	private JButton btn4;
+	private JButton btn5;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		btn1 = new JButton("Button 1");
+		btn2 = new JButton("Button 2");
+		btn3 = new JButton("Button 3");
+		btn4 = new JButton("Button 4");
+		btn5 = new JButton("Button 5");
+		
+		add(btn1, BorderLayout.PAGE_START);		
+		add(btn2, BorderLayout.LINE_START);
+		add(btn3, BorderLayout.CENTER);
+		add(btn4, BorderLayout.LINE_END);
+		add(btn5, BorderLayout.PAGE_END);
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+    "Swing Layout Mangers"
+/////////////////////////////////////////////////////////////////////
+Q69)BorderLayout (default for JFrame)
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton btn1;
+	private JButton btn2;
+	private JButton btn3;
+	private JButton btn4;
+	private JButton btn5;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		btn1 = new JButton("Button 1");
+		btn2 = new JButton("Button 2");
+		btn3 = new JButton("Button 3");
+		btn4 = new JButton("Button 4");
+		btn5 = new JButton("Button 5");
+		
+		add(btn1, BorderLayout.PAGE_START);		
+		add(btn2, BorderLayout.LINE_START);
+		add(btn3, BorderLayout.CENTER);
+		add(btn4, BorderLayout.LINE_END);
+		add(btn5, BorderLayout.PAGE_END);
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////
+Q70)FlowLayout
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton btn1;
+	private JButton btn2;
+	private JTextField txt1;
+	private JRadioButton rdBtn;
+	private JTextField txt2;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		setLayout(new FlowLayout());
+		
+		btn1 = new JButton("Button 1");
+		btn2 = new JButton("Button 2");
+		txt1 = new JTextField(35);
+		rdBtn = new JRadioButton();
+		txt2 = new JTextField(10);
+		
+		add(btn1);
+		add(btn2);
+		add(txt1);
+		add(rdBtn);
+		add(txt2);
+		
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+Q71)Align Left
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton btn1;
+	private JButton btn2;
+	private JTextField txt1;
+	private JRadioButton rdBtn;
+	private JTextField txt2;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		btn1 = new JButton("Button 1");
+		btn2 = new JButton("Button 2");
+		txt1 = new JTextField(35);
+		rdBtn = new JRadioButton();
+		txt2 = new JTextField(10);
+		
+		add(btn1);
+		add(btn2);
+		add(txt1);
+		add(rdBtn);
+		add(txt2);
+		
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+///////////////////////////////////////////////////////////////////////////
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton btn1;
+	private JButton btn2;
+	private JTextField txt1;
+	private JRadioButton rdBtn;
+	private JTextField txt2;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		setLayout(new FlowLayout());
+		
+		btn1 = new JButton("Button 1");
+		btn2 = new JButton("Button 2");
+		txt1 = new JTextField(35);
+		rdBtn = new JRadioButton();
+		txt2 = new JTextField(10);
+		
+		add(btn1);
+		add(btn2);
+		add(txt1);
+		add(rdBtn);
+		add(txt2);
+		
+		pack();//////////// new add
+		
+	}
+}
+
+class Navi {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+/////////////////////////////////////////////////////////////////////
+Q74)GridLayout
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton btn1;
+	private JButton btn2;
+	private JButton btn3;
+	private JButton btn4;
+	private JButton btn5;
+	private JTextField txt1;
+	private JRadioButton rdBtn;
+	private JTextField txt2;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		setLayout(new GridLayout(2, 4, 5, 8));
+		
+		btn1 = new JButton("Button 1");
+		btn2 = new JButton("Button 2");
+		btn3 = new JButton("Button 3");
+		btn4 = new JButton("Button 4");
+		btn5 = new JButton("Button 5");
+		txt1 = new JTextField(35);
+		rdBtn = new JRadioButton();
+		txt2 = new JTextField(10);
+		
+		add(btn1);
+		add(btn2);
+		add(btn3);
+		add(btn4);
+		add(btn5);
+		add(rdBtn);
+		add(txt1);
+		add(txt2);		
+	}
+}
+
+class Demo {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+////////////////////////////////////////////////////////////////////////
+
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	
+	
+
+	private JButton btn1;
+	private JButton btn2;
+	private JButton btn3;
+	private JButton btn4;
+	private JButton btn5;
+	private JButton btn6;
+	private JButton btn7;
+	private JButton btn8;
+	private JButton btn9;
+	private JButton btn10;
+	private JButton btn11;
+	private JButton btn12;
+	private JButton btn13;			
+	private JButton btn14;
+	private JButton btn15;
+	private JButton btn16;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calculator");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		setLayout(new GridLayout(4, 4));
+		
+		btn1 = new JButton(" 7 ");
+		btn2 = new JButton(" 8 ");
+		btn3 = new JButton(" 9  ");
+		btn4 = new JButton(" / ");
+		btn5 = new JButton(" 4 ");
+		btn6 = new JButton(" 5 ");
+		btn7 = new JButton(" 6 ");
+		btn8 = new JButton(" * ");
+		btn9 = new JButton(" 1 ");
+		btn10 = new JButton(" 2 ");
+		btn11 = new JButton(" 3 ");
+		btn12 = new JButton(" + ");
+		btn13 = new JButton(" 0 ");
+		btn14 = new JButton(" * ");
+		btn15 = new JButton(" = ");
+		btn16 = new JButton(" - ");
+        
+		
+		
+		//txt1 = new JTextField(35);
+		//rdBtn = new JRadioButton();
+		//txt2 = new JTextField(10);
+		
+		add(btn1);
+		add(btn2);
+		add(btn3);
+		add(btn4);
+		add(btn5);
+		add(btn6);
+		add(btn7);
+		add(btn8);	
+		add(btn9);	
+		add(btn10);	
+		add(btn11);	
+		add(btn12);	
+		add(btn13);	
+		add(btn14);	
+		add(btn15);
+		add(btn16);
+	
+		
+			
+	}
+}
+
+class Navi {
+	public static void main(String args[]) {
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+		
+	}
+}
+/////////////////////////////////////////////////////////////////////
+Q77) From Q75 Step II
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton[] buttons;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calc");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setLayout(new GridLayout(4, 4, 5, 5));
+		
+		buttons = new JButton[16];
+		String[] btnNames = {"7", "8", "9", "-", "4", "5", "6", "/", "1", "2", "3", "+", "0", ".", "=", "*"};
+		
+		for (int i = 0; i < buttons.length; i++) {
+			buttons[i] = new JButton(btnNames[i]);
+			add(buttons[i]);	
+		}
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+	}
+}
+/////////////////////////////////////////////////////////////////////
+    "JPanel"
+/////////////////////////////////////////////////////////////////////
+Q78)
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton[] buttons;
+	private JPanel displayPanel;
+	private JPanel buttonsPanel;
+	private JTextField txt1;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calc");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		displayPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));	//FlowLayout
+		buttonsPanel = new JPanel(new GridLayout(4, 4, 5, 5));
+		
+		txt1 = new JTextField(20);
+		displayPanel.add(txt1);
+		
+		buttons = new JButton[16];
+		String[] btnNames = {"7", "8", "9", "-", "4", "5", "6", "/", "1", "2", "3", "+", "0", ".", "=", "*"};
+		
+		for (int i = 0; i < buttons.length; i++) {
+			buttons[i] = new JButton(btnNames[i]);
+			buttonsPanel.add(buttons[i]);	
+		}
+		
+		add(displayPanel, BorderLayout.PAGE_START);
+		add(buttonsPanel, BorderLayout.CENTER);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+	}
+///////////////////////////////////////////////////////////////////////
+
+Q79)Exercise
+import javax.swing.*;
+import java.awt.*;
+
+class Calculator extends JFrame {
+	private JButton[] buttons;
+	private JPanel displayPanel;
+	private JPanel buttonsPanel;
+	private JPanel namePanel;
+	private JTextField txt1;
+	private JLabel lblName;
+	
+	Calculator() {
+		setSize(400, 300);
+		setTitle("Calc");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		displayPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));	//FlowLayout
+		buttonsPanel = new JPanel(new GridLayout(4, 4, 5, 5));
+		namePanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		
+		txt1 = new JTextField(20);
+		displayPanel.add(txt1);
+		
+		lblName = new JLabel();
+		lblName.setFont(new Font("Serif", Font.BOLD, 11));
+		lblName.setText("Developed by Danuja");
+		
+		namePanel.add(lblName);
+		
+		buttons = new JButton[16];
+		String[] btnNames = {"7", "8", "9", "-", "4", "5", "6", "/", "1", "2", "3", "+", "0", ".", "=", "*"};
+		
+		for (int i = 0; i < buttons.length; i++) {
+			buttons[i] = new JButton(btnNames[i]);
+			buttonsPanel.add(buttons[i]);	
+		}
+		
+		add(displayPanel, BorderLayout.PAGE_START);
+		add(buttonsPanel, BorderLayout.CENTER);
+		add(namePanel, BorderLayout.PAGE_END);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		Calculator c1 = new Calculator();
+		c1.setVisible(true);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+Q81)From Q80 Step I
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Window extends JFrame {
+	private JButton btnClickMe;
+	private JPanel panel;
+	
+	Window() {
+		initComponents();
+	}
+	
+	public void initComponents() {
+		setSize(400, 300);
+		setTitle("Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		panel = new JPanel();
+		
+		btnClickMe = new JButton("Click Me!");
+		btnClickMe.setFont(new Font("Serif", Font.PLAIN, 12));
+		btnClickMe.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
+		btnClickMe.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent event) {
+				System.out.println("Pressed!");
+			}
+		});
+		
+		panel.add(btnClickMe);
+		
+		add(panel, BorderLayout.CENTER);
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new Window().setVisible(true);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////
+Q82) From Q80 StepII
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Window extends JFrame implements ActionListener {
+	private JButton btnClickMe;
+	private JPanel panel;
+	
+	Window() {
+		initComponents();
+	}
+	
+	public void initComponents() {
+		setSize(400, 300);
+		setTitle("Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		panel = new JPanel();
+		
+		btnClickMe = new JButton("Click Me!");
+		btnClickMe.setFont(new Font("Serif", Font.PLAIN, 12));
+		btnClickMe.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
+		btnClickMe.addActionListener(this);
+		
+		panel.add(btnClickMe);
+		
+		add(panel, BorderLayout.CENTER);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		System.out.println("Pressed!");
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new Window().setVisible(true);
+	}
+}
+/////////////////////////////////////////////////////////////////
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Window extends JFrame implements ActionListener {
+	private JButton btnExit;
+	private JButton btnBack;
+	private JPanel panel;
+	
+	Window() {
+		initComponents();
+	}
+	
+	public void initComponents() {
+		setSize(400, 300);
+		setTitle("Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		panel = new JPanel();
+		
+		btnExit = new JButton("Exit");
+		btnExit.setFont(new Font("Serif", Font.PLAIN, 12));
+		btnExit.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
+		btnBack = new JButton("Back");
+		btnBack.setFont(new Font("Serif", Font.PLAIN, 12));
+		btnBack.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
+		
+		btnExit.addActionListener(this);
+		btnBack.addActionListener(this);
+		
+		panel.add(btnExit);
+		panel.add(btnBack);
+		
+		add(panel, BorderLayout.CENTER);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		if(event.getActionCommand().equals("Exit")) {
+			System.exit(0);	
+		} else if(event.getActionCommand().equals("Back")) {
+			System.out.println(event.getActionCommand() + " pressed!");
+		}
+		
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new Window().setVisible(true);
+	}
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Window extends JFrame implements ActionListener {
+	private JButton btnClick;
+	private JTextField txt;
+	private JLabel lbl;
+	private JPanel displayPanel;
+	private JPanel btnPanel;
+	private JPanel lblPanel;
+	
+	Window() {
+		initComponents();
+	}
+	
+	public void initComponents() {
+		setSize(400, 300);
+		setTitle("Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		displayPanel = new JPanel();
+		btnPanel = new JPanel();
+		lblPanel = new JPanel();
+		
+		txt = new JTextField(20);
+		
+		btnClick = new JButton("Click");
+		btnClick.addActionListener(this);
+		
+		lbl = new JLabel();
+		lbl.setFont(new Font("Serif", Font.BOLD, 24));
+		lbl.setText("Label is here");
+		
+		displayPanel.add(txt);
+		btnPanel.add(btnClick);
+		lblPanel.add(lbl);
+		
+		add(displayPanel, BorderLayout.PAGE_START);
+		add(btnPanel, BorderLayout.CENTER);
+		add(lblPanel, BorderLayout.PAGE_END);
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		if(event.getActionCommand().equals("Click")) {
+			String text = txt.getText();
+			lbl.setText(text);
+		}
+		
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new Window().setVisible(true);
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Window extends JFrame implements ActionListener {
+	private JButton btnClick;
+	private JTextField txt;
+	private JLabel lbl;
+	private JPanel displayPanel;
+	private JPanel btnPanel;
+	private JPanel lblPanel;
+	
+	Window() {
+		initComponents();
+	}
+	
+	public void initComponents() {
+		setSize(400, 300);
+		setTitle("Window");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		displayPanel = new JPanel();
+		btnPanel = new JPanel();
+		lblPanel = new JPanel();
+		
+		txt = new JTextField(20);
+		
+		btnClick = new JButton("Click");
+		btnClick.addActionListener(this);
+		
+		lbl = new JLabel();
+		lbl.setFont(new Font("Serif", Font.BOLD, 24));
+		lbl.setText("Label is here");
+		
+		displayPanel.add(txt);
+		btnPanel.add(btnClick);
+		lblPanel.add(lbl);
+		
+		add(displayPanel, BorderLayout.PAGE_START);
+		add(btnPanel, BorderLayout.CENTER);
+		add(lblPanel, BorderLayout.PAGE_END);
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		if(event.getActionCommand().equals("Click")) {
+			String text = txt.getText();
+			lbl.setText(text);
+		}
+		
+	}
+}
+
+class Demo{
+	public static void main(String args[]){
+		new Window().setVisible(true);
+	}
+}
+
